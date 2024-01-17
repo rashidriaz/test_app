@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Stateful widget implementation'),
+        title: const Text('State management test app'),
       ),
       body: Center(
         child: Column(
@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
             ),
             ElevatedButton(
               child: const Text("provider pattern counter"),
-              onPressed: () => Navigator.pushNamed(context, "/stateful-widget"),
+              onPressed: () => Navigator.pushNamed(context, "/provider-widget"),
             ),
           ],
         ),

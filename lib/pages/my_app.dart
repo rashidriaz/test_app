@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/pages/provider_count.dart';
 import 'pages.dart';
 
 class MyApp extends StatelessWidget {
@@ -16,8 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context)=>const HomePage(),
         "/stateful-widget": (context)=> const StatefulCounter(),
-        "/provider-widget": (context)=> const StatefulCounter(),
-        "/bloc-widget": (context)=> const StatefulCounter(),
+        "/provider-widget": (context)=> const ProviderCount(),
       },
     );
   }
