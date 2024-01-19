@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/pages/provider_count.dart';
-import 'pages.dart';
+import 'package:provider/provider.dart';
+import 'package:test_app/utils/utils.dart';
+
+import '../models/models.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -14,10 +16,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
         useMaterial3: true,
       ),
-      routes: {
-        "/": (context)=>const HomePage(),
-        "/stateful-widget": (context)=> const StatefulCounter(),
-        "/provider-widget": (context)=> const ProviderCount(),
+      onGenerateRoute:(settings) {
+        final deepLinksProvider = Provider.of<DeepLinks>(context, listen: true);
+        Route<dynamic>? deepLinkRoute = deepLinksProvider.handleDeepLinkNavigation(context);
+        debugPrint("HERE");
+        return deepLinkRoute ?? RouteManager.generateRoute(settings);
       },
     );
   }
